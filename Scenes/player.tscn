@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://3s6ey3uonul2"]
+[gd_scene load_steps=8 format=3 uid="uid://3s6ey3uonul2"]
 
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_eq03j"]
 [ext_resource type="Texture2D" uid="uid://ba4rfgbxes3ja" path="res://AssetBundle/Sprites/Foxy.png" id="1_i0h6i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47s6d"]
@@ -39,6 +40,8 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_eq03j")
+move_speed = 200.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vf0me")
