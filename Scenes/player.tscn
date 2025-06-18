@@ -1,7 +1,31 @@
-[gd_scene load_steps=15 format=3 uid="uid://3s6ey3uonul2"]
+[gd_scene load_steps=21 format=3 uid="uid://3s6ey3uonul2"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_eq03j"]
 [ext_resource type="Texture2D" uid="uid://ba4rfgbxes3ja" path="res://AssetBundle/Sprites/Foxy.png" id="1_i0h6i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifvoi"]
+atlas = ExtResource("1_i0h6i")
+region = Rect2(0, 256, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sknfx"]
+atlas = ExtResource("1_i0h6i")
+region = Rect2(33, 256, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbrvn"]
+atlas = ExtResource("1_i0h6i")
+region = Rect2(66, 256, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elwig"]
+atlas = ExtResource("1_i0h6i")
+region = Rect2(99, 256, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxkwl"]
+atlas = ExtResource("1_i0h6i")
+region = Rect2(132, 256, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oun21"]
+atlas = ExtResource("1_i0h6i")
+region = Rect2(165, 256, 33, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47s6d"]
 atlas = ExtResource("1_i0h6i")
@@ -45,6 +69,29 @@ region = Rect2(165, 32, 33, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vf0me"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifvoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sknfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbrvn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elwig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxkwl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oun21")
+}],
+"loop": true,
+"name": &"game_over",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_47s6d")
@@ -95,9 +142,8 @@ animator = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_vf0me")
-animation = &"run"
+animation = &"game_over"
 autoplay = "idle"
-frame_progress = 0.71937
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
