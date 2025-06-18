@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://daelmkiuly73q"]
+[gd_scene load_steps=4 format=3 uid="uid://daelmkiuly73q"]
 
 [ext_resource type="Texture2D" uid="uid://cxydc2t0sswnd" path="res://AssetBundle/Sprites/ForestBackground.png" id="1_m7xh1"]
 [ext_resource type="PackedScene" uid="uid://3s6ey3uonul2" path="res://Scenes/player.tscn" id="2_t3nkl"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uan6m"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -20,3 +22,32 @@ zoom = Vector2(2.4, 2.4)
 metadata/_edit_lock_ = true
 
 [node name="Player" parent="." instance=ExtResource("2_t3nkl")]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Node"]
+position = Vector2(226, 76)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D3"]
+shape = SubResource("WorldBoundaryShape2D_uan6m")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Node"]
+position = Vector2(-224, 94)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D4"]
+shape = SubResource("WorldBoundaryShape2D_uan6m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Node"]
+position = Vector2(0, 130)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D"]
+shape = SubResource("WorldBoundaryShape2D_uan6m")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Node"]
+position = Vector2(0, 43)
+rotation = -3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node/StaticBody2D2"]
+shape = SubResource("WorldBoundaryShape2D_uan6m")
