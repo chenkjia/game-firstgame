@@ -4,7 +4,8 @@ extends CharacterBody2D
 
 @export var animator: AnimatedSprite2D
 
-var is_game_over: bool = false
+@export var is_game_over: bool = false
+@export var bullet_scene: PackedScene
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -23,3 +24,12 @@ func game_over():
 	animator.play('game_over')
 	await get_tree().create_timer(3).timeout
 	get_tree().reload_current_scene()
+
+
+func _on_fire() -> void:
+	if velocity != Vector2.ZERO or is_game_over:
+		return 
+	var bullet_node = bullet_scene.instantiate()
+	bullet_node.position = position + Vector2(6,6)
+	get_tree().current_scene.add_child(bullet_node)
+	pass # Replace with function body.
