@@ -6,6 +6,8 @@ extends Area2D
 func _physics_process(delta: float) -> void:
 	if not is_dead:
 		position +=Vector2(slime_speed,0) * delta
+	if position.x < -300
+		queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:
