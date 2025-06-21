@@ -7,6 +7,13 @@ extends CharacterBody2D
 @export var is_game_over: bool = false
 @export var bullet_scene: PackedScene
 
+func _process(delta: float) -> void:
+	if velocity == Vector2.ZERO or is_game_over:
+		$RunningSound.stop()
+	elif not $RunningSound.playing:
+		$RunningSound.play()
+		
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -23,17 +30,21 @@ func game_over():
 	if not is_game_over:
 		is_game_over = true
 		animator.play('game_over')
-		
 		get_tree().current_scene.show_game_over()
-		
-		await get_tree().create_timer(3).timeout
-		get_tree().reload_current_scene()
-
+		$GameOverSound.play()
+		$RestartTimer.start()
 
 func _on_fire() -> void:
 	if velocity != Vector2.ZERO or is_game_over:
-		return 
+		return
+	$FireSound.play()
 	var bullet_node = bullet_scene.instantiate()
 	bullet_node.position = position + Vector2(6,6)
 	get_tree().current_scene.add_child(bullet_node)
 	pass # Replace with function body.
+	
+
+
+
+func _reload_scene() -> void:
+	get_tree().reload_current_scene()
