@@ -126,8 +126,6 @@ animations = [{
 
 [node name="Slime" type="Area2D"]
 script = ExtResource("1_7qpjo")
-slime_speed = null
-is_dead = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_q3b3l")

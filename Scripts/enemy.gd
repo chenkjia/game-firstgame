@@ -6,7 +6,7 @@ extends Area2D
 func _physics_process(delta: float) -> void:
 	if not is_dead:
 		position +=Vector2(slime_speed,0) * delta
-	if position.x < -300
+	if position.x < -300:
 		queue_free()
 
 
@@ -21,6 +21,7 @@ func _on_area_entered(area: Area2D) -> void:
 		is_dead = true
 		$AnimatedSprite2D.play("death")
 		area.queue_free()
+		get_tree().current_scene.score += 1
 		await get_tree().create_timer(0.6).timeout
 		queue_free()
 	pass # Replace with function body.
